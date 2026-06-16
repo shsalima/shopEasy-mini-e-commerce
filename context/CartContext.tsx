@@ -3,6 +3,7 @@
 import { CartItem } from '@/app/types/CartItem';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+
 interface CartContextType {
   cart: CartItem[];
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
