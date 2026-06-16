@@ -1,4 +1,6 @@
+import Header from "@/components/Header";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 
 
@@ -13,10 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+   <html lang="en">
+      <body className="flex flex-col min-h-screen justify-between">
+        <div>
+          <Header />
+          <main>{children}</main>
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }
