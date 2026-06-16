@@ -1,11 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 
 export default function Header() {
   const { cart } = useCart();
+  const pathname = usePathname();
+
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  const isStorefrontActive = pathname === "/";
 
   return (
     <header className="border-b border-gray-800 bg-[#0b0f19] px-6 py-4 sticky top-0 z-50">
@@ -39,14 +44,25 @@ export default function Header() {
         <nav className="flex items-center gap-6">
           <Link
             href="/"
-            className="text-sm font-medium text-gray-400 hover:text-white transition"
+            className={`text-sm font-medium transition flex items-center gap-1.5 ${
+              isStorefrontActive
+                ? "text-indigo-400 font-semibold"
+                : "text-gray-400 hover:text-white"
+            }`}
           >
+            {isStorefrontActive && (
+              <span className="w-1 h-1 rounded-full bg-indigo-400 animate-fade-in" />
+            )}
             Storefront
           </Link>
 
           <Link
             href="/cart"
-            className="flex items-center gap-2 bg-[#161f30] hover:bg-gray-800 text-gray-300 hover:text-white text-xs font-medium py-2.5 px-4 rounded-xl border border-gray-800 transition"
+            className={`flex items-center gap-2 text-xs font-medium py-2.5 px-4 rounded-xl border transition ${
+              pathname === "/cart"
+                ? "bg-indigo-950/40 border-indigo-500/30 text-indigo-400"
+                : "bg-[#161f30] hover:bg-gray-800 border-gray-800 text-gray-300 hover:text-white"
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
