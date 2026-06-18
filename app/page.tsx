@@ -4,6 +4,8 @@ import { products } from "@/data/products";
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
+
+      
       <div className="text-center bg-gradient-to-b from-[#111625] to-[#0b0f19] border border-gray-800/60 rounded-3xl py-16 px-4 mb-12 shadow-xl">
         <span className="inline-block text-[11px] bg-indigo-950 text-indigo-300 border border-indigo-900/60 px-3 py-1 rounded-full mb-6 font-medium flex items-center gap-1.5 w-fit mx-auto">
           <svg
@@ -91,6 +93,9 @@ export default function Home() {
           </span>
         </div>
       </div>
+
+
+
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
         <div className="bg-[#121826]/40 border border-gray-800/80 p-5 rounded-2xl flex items-center gap-4">
