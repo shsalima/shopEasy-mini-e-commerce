@@ -24,6 +24,7 @@ export function CartProvider({
 }: {
   children: React.ReactNode;
 }) {
+  
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
